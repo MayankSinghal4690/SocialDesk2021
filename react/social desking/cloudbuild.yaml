@@ -1,0 +1,15 @@
+steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+    dir: 'react/social desking'
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run','build']
+    dir: 'react/social desking'
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    dir: 'react/social desking'
+    args: ['-c', 'gcloud config set app/cloud_build_timeout 300 && gcloud app deploy']
+
+timeout: '600s'

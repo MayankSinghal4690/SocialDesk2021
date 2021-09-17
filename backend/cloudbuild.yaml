@@ -1,0 +1,15 @@
+steps:
+  - name: 'maven:3.8-jdk-11'
+    args: ['-version']
+    dir: backend
+    entrypoint: mvn
+
+  - name: 'maven:3.8-jdk-11'
+    args: ['package']
+    dir: backend
+    entrypoint: mvn
+
+  - name: 'maven:3.8-jdk-11'
+    args: ['appengine:deploy','-e']
+    dir: backend
+    entrypoint: mvn
